@@ -1,0 +1,99 @@
+/* 
+.cell-style {
+    /* position: relative; این خط باید فعال باشد */
+    /* color: rgb(31, 31, 31);
+    z-index: 10000; /
+} */
+
+/* .cell-style:hover::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    left: 1150px; /* موقعیت افقی */
+    /* transform: translate(5px, 5px); /* استفاده از px برای جابجایی */
+    /* background-color: rgb(246, 8, 8); رنگ پس‌زمینه در hover */
+
+/* } */
+ 
+
+
+
+
+
+.cell-style:hover::after{
+    /* position: relative; این خط باید فعال باشد */
+    content: "";
+    left: 1150px;
+    /* top: 203px; */
+    position: absolute;
+    z-index: 1000;
+ border:  2px solid rgb(255, 6, 6);
+ width: 60px;
+ height: 20px;
+ filter: blur(1px);
+}
+
+/* ---------------------------------------------------------------------- */
+
+
+/* 
+.cell-style2 {
+    /* position: relative; این خط باید فعال باشد */
+    /* color: rgb(31, 31, 31);
+    z-index: 10000; /
+} */
+
+/* .cell-style2:hover::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 30px; */
+    /* left: 1150px; /* موقعیت افقی */
+    
+    /* transform: translate(5px, 5px); /* استفاده از px برای جابجایی */
+    /* background-color: rgb(213, 193, 7); رنگ پس‌زمینه در hover */
+/* }  */
+
+
+
+
+.cell-style2:hover::after{
+    /* position: relative; این خط باید فعال باشد */
+    content: "";
+    left: 1153px;
+    /* top: 203px; */
+    position: absolute;
+    z-index: 1000;
+ border:  2px solid rgb(226, 255, 65);
+ width: 60px;
+ height: 20px;
+ filter: blur(1px);
+}
+/* ---------------------------------------------------------------------- */
+
+
+
+
+.cell-style3:hover::after{
+    /* position: relative; این خط باید فعال باشد */
+    content: "";
+    left: 1150px;
+    /* top: 203px; */
+    position: absolute;
+    z-index: 1000;
+ border:  2px solid green;
+ width: 60px;
+ height: 20px;
+ filter: blur(1px);
+}
+/* 
+.cell-style3:hover::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    left: 1150px; /* موقعیت افقی */
+/*     
+    transform: translate(5px, 5px); /* استفاده از px برای جابجایی */
+    /* background-color: rgb(64, 185, 16); /* رنگ پس‌زمینه در hover */

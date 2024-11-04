@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="bg-gray-100 transition duration-300">
+    <!-- Header -->
+    <header
+      class="bg-white shadow-md py-4 px-8 flex items-center justify-between"
+    >
+      <!-- Search Box and Button -->
+      <div class="flex items-center space-x-2">
+        <input
+          type="text"
+          class="px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+          placeholder="Search..."
+        />
+        <button
+          class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-r-lg hover:bg-blue-600 hover:scale-105 transition duration-300 ease-in-out"
+        >
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+
+      <!-- Additional Buttons -->
+      <div class="flex space-x-4">
+        <button
+          class="bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-white font-bold py-2 px-6 shadow-lg hover:from-blue-600 hover:to-purple-600 hover:scale-105 transition duration-300 ease-in-out transform"
+        >
+          <i class="fas fa-check"></i> Active
+        </button>
+        <button
+          class="bg-gradient-to-r from-red-500 to-yellow-500 rounded-lg text-white font-bold py-2 px-6 shadow-lg hover:from-red-600 hover:to-yellow-600 hover:scale-105 transition duration-300 ease-in-out transform"
+        >
+          <i class="fas fa-ban"></i> De-Active
+        </button>
+        <button
+          class="bg-gradient-to-r from-gray-500 to-gray-700 rounded-lg text-white font-bold py-2 px-6 shadow-lg hover:from-gray-600 hover:to-gray-800 hover:scale-105 transition duration-300 ease-in-out transform"
+        >
+          <i class="fas fa-pause"></i> Suspend
+        </button>
+        <button
+          class="bg-gray-300 text-gray-800 rounded-lg px-4 py-2"
+          id="dark-mode-toggle"
+        >
+          <i class="fas fa-moon"></i> Toggle Dark Mode
+        </button>
+      </div>
+    </header>
+
+    <div class="container mx-auto p-4">
+      <center>
+        <h1 class="text-3xl font-bold mb-6 text-center">Account Info</h1>
+      </center>
+
+      <div class="overflow-x-auto">
+        <table
+          class="min-w-full bg-white shadow-md rounded-lg overflow-hidden"
+          id="mytable"
+        
+        >
+          <thead>
+            <tr
+              class="bg-gray-200 text-gray-600 text-left text-sm leading-normal"
+            >
+              <th class="py-3 px-5 text-left">#</th>
+              <th class="py-3 px-5 text-left">Name</th>
+              <th class="py-3 px-5 text-left">Username</th>
+              <th class="py-3 px-5 text-left">Last-Active</th>
+              <th class="py-3 px-5 text-left">Email</th>
+              <th class="py-3 px-5 text-left">Active</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-600 text-sm font-light" id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      const data = [
+        {
+          id: 1,
+          name: "ali",
+          username: "34984313",
+          LastActive: "yesterday",
+          Email: "ajddad@gmail.com",
+          ACtive: "online",
+        },
+        {
+          id: 2,
+          name: "hasan",
+          username: "349873",
+          LastActive: "yesterday",
+          Email: "akdzjgdad@gmail.com",
+          ACtive: "online",
+        },
+        {
+          id: 3,
+          name: "mahdi",
+          username: "349842",
+          LastActive: "yesterday",
+          Email: "ajdesgsd@gmail.com",
+          ACtive: "suspond",
+        },
+        {
+          id: 4,
+          name: "reza",
+          username: "3447747",
+          LastActive: "yesterday",
+          Email: "aeterd@gmail.com",
+          ACtive: "online",
+        },
+        {
+          id: 5,
+          name: "danial",
+          username: "al646",
+          LastActive: "yesterday",
+          Email: "ajsggad@gmail.com",
+          ACtive: "offline",
+        },
+        {
+          id: 6,
+          name: "amin",
+          username: "ali3456",
+          LastActive: "yesterday",
+          Email: "ajayfyfd@gmail.com",
+          ACtive: "offline",
+        },
+        {
+          id: 7,
+          name: "emad",
+          username: "ali4456",
+          LastActive: "yesterday",
+          Email: "ajddad@gmail.com",
+          ACtive: "suspond",
+        },
+        {
+          id: 8,
+          name: "mohammad",
+          username: "ali323456",
+          LastActive: "yesterday",
+          Email: "ajddad@gmail.com",
+          ACtive: "online",
+        },
+        {
+          id: 9,
+          name: "hossein",
+          username: "al276656",
+          LastActive: "yesterday",
+          Email: "efyead@gmail.com",
+          ACtive: "suspond",
+        },
+        {
+          id: 10,
+          name: "sajad",
+          username: "al367326",
+          LastActive: "yesterday",
+          Email: "ajdeggoiuig@gmail.com",
+          ACtive: "offline",
+        },
+      ];
+
+      data.forEach(function (item) {
+        // یافتن tbody و اضافه کردن یک سطر جدید
+        var tbodyref = document
+          .getElementById("mytable")
+          .getElementsByTagName("tbody")[0];
+        var newrow = tbodyref.insertRow();
+        newrow.classList.add("cell-style5");
+
+        // اضافه کردن سلول‌ها به سطر
+        var cell1 = newrow.insertCell();
+        var cell2 = newrow.insertCell();
+        var cell3 = newrow.insertCell();
+        var cell4 = newrow.insertCell();
+        var cell5 = newrow.insertCell();
+        var cell6 = newrow.insertCell();
+
+        // اضافه کردن مقادیر هر سلول
+        cell1.appendChild(document.createTextNode(item.id));
+        cell2.appendChild(document.createTextNode(item.name));
+        cell3.appendChild(document.createTextNode(item.username));
+        cell4.appendChild(document.createTextNode(item.LastActive));
+        cell5.appendChild(document.createTextNode(item.Email));
+        cell6.appendChild(document.createTextNode(item.ACtive));
+        // cell6.classList.add("cell-style");
+
+        if(item.ACtive=='offline')
+      {
+        cell6.classList.add("cell-style");
+      }
+      else if(item.ACtive=='suspond'){
+        cell6.classList.add("cell-style2");
+
+      }
+      else if(item.ACtive=='online'){
+        cell6.classList.add("cell-style3");
+
+        
+      }
+        // اضافه کردن استایل به سلول‌ها
+        cell1.classList.add("py-2", "px-4", "text-left");
+        cell2.classList.add("py-2", "px-4", "text-left");
+        cell3.classList.add("py-2", "px-4", "text-left");
+        cell4.classList.add("py-2", "px-4", "text-left");
+        cell5.classList.add("py-2", "px-4", "text-left");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style2.css" />
+    <title>Dark Mode Example</title>
+  </head>
+
+  <body class="bg-gray-100 dark:bg-gray-900 transition duration-300">
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 shadow-md py-4 px-8 flex items-center justify-between">
+      <!-- Search Box and Button -->
+      <div class="flex items-center space-x-2">
+        <input
+          type="text"
+          class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-600 dark:bg-gray-700 dark:text-white focus:border-transparent"
+          placeholder="Search..."
+        />
+        <button class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-r-lg hover:bg-blue-600 hover:scale-105 transition duration-300 ease-in-out">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+
+      <!-- Dark Mode Toggle Button -->
+      <div class="flex space-x-4">
+        <button class="bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-white rounded-lg px-4 py-2" id="dark-mode-toggle">
+          <i class="fas fa-moon"></i> Toggle Dark Mode
+        </button>
+      </div>
+    </header>
+
+    <!-- Table Section -->
+    <div class="container mx-auto p-4">
+      <h1 class="text-3xl font-bold mb-6 text-center dark:text-white">Account Info</h1>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden" id="mytable">
+          <thead>
+            <tr class="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-left text-sm leading-normal">
+              <th class="py-3 px-5 text-left">#</th>
+              <th class="py-3 px-5 text-left">Name</th>
+              <th class="py-3 px-5 text-left">Username</th>
+              <th class="py-3 px-5 text-left">Last-Active</th>
+              <th class="py-3 px-5 text-left">Email</th>
+              <th class="py-3 px-5 text-left">Active</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-600 dark:text-gray-300 text-sm font-light" id="tbody">
+            <!-- Data rows will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      // جاوااسکریپت برای تغییر حالت تاریک
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+
+      const toggleButton = document.getElementById("dark-mode-toggle");
+
+      toggleButton.addEventListener("click", function () {
+        const isDarkMode = document.documentElement.classList.toggle("dark");
+
+        if (isDarkMode) {
+          localStorage.setItem("theme", "dark");
+          toggleButton.innerHTML = '<i class="fas fa-sun"></i> Toggle Light Mode';
+        } else {
+          localStorage.setItem("theme", "light");
+          toggleButton.innerHTML = '<i class="fas fa-moon"></i> Toggle Dark Mode';
+        }
+      });
+    </script>
+  </body>
+</html>
